@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal BHS - Superare">
+    <meta name="keywords" content="Power BI, Inteligência de dados, relatórios interativos, integrações">
+    <title>Portal BHS - Superare</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Portal BHS - Superare</a>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="user-nav-item">  <a href="#" class="user-greeting">Olá Usuário</a>
+                        <button class="button-exit">Sair</button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+        <section class="portal">
+            <div class="portal-container">
+                <!-- Relatório Power BI -->
+                <iframe title="BHS - GELOBEL" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNmE2ODFhNGYtZTRhNi00MTE3LWFiOTUtY2Y0MDM5Y2UxNjYzIiwidCI6IjU4OGRjOTQ5LWMwMWItNDU3My1iYmIzLWRkOTAzMzQxYTljNCJ9" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+        </section>
+
+    <button id="chat-toggle-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+
+    <div id="chat-widget" class="hidden">
+        <div class="chat-header">
+            <h3>Assistente BHS</h3>
+            <button id="chat-close-button">&times;</button>
+        </div>
+        <div id="chat-messages">
+            </div>
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem..." autocomplete="off">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>

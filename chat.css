@@ -1,0 +1,335 @@
+
+/* Import Inter font (optional, if not already globally imported) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Resetando margens e paddings padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e fundo */
+body {
+    font-family: 'Inter', 'Arial', sans-serif; /* Using Inter for a cleaner look */
+    background-color: #eef2f7; /* Lighter, cooler gray - good neutral background */
+    color: #333a45; /* Darker, slightly desaturated text color */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #2c3e50; /* Darker, professional header background */
+    color: #ffffff; /* White text for contrast on dark header */
+    height: 80px; /* Sleeker fixed height, adjust if needed */
+    display: flex; /* Enables align-items for .container */
+    align-items: center; /* Vertically center .container */
+    border-bottom: 1px solid #3a4b5c; /* Subtle border for separation */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Softer, refined shadow */
+    padding: 0 20px; /* Add some horizontal padding directly to header */
+}
+
+.header .container {
+    width: 100%; /* Container takes full width within header padding */
+    /* max-width: 1200px; /* Keep or adjust based on preference */
+    /* margin: 0 auto; /* Centering if max-width is used */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; /* Ensure container children can be aligned within header height */
+}
+
+.header .logo {
+    font-size: 24px; /* Adjusted logo size */
+    font-weight: 600; /* Semi-bold */
+    color: #ffffff; /* White logo text */
+    text-decoration: none;
+}
+
+.nav-menu ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center; /* Align items in nav vertically */
+    gap: 25px; /* Gap between nav items */
+}
+
+.nav-menu ul li {
+    display: inline-block;
+}
+
+/* Style for "Olá Usuário" text if it's a link or span */
+.nav-menu ul li a,
+.nav-menu ul li .user-greeting-text { /* Added a class for non-link user greeting */
+    color: #cdd4da; /* Lighter gray for nav links/text, less stark than pure white */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500; /* Medium weight */
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li .user-greeting-text:hover { /* Optional: hover for greeting text if needed */
+    color: #ffffff; /* White on hover */
+}
+
+.nav-menu ul li button {
+    background-color: #007bff; /* Professional blue - good contrast on dark */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Adjusted padding */
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px; /* Slightly more rounded */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-menu ul li button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.35); /* Enhanced shadow on hover */
+}
+
+.nav-menu ul li.user-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adjusted gap between "Olá Usuário" and button */
+}
+/* If "Olá Usuário" is a specific element like a span, target it for color: */
+.nav-menu ul li.user-nav-item .user-greeting-text {
+    color: #e9ecef; /* Slightly brighter for user greeting */
+    margin-right: 15px; /* Ensure spacing if gap is not applied by parent flex */
+}
+
+
+/* Seção de Portal */
+.portal {
+    background-color: transparent; /* Allows body background to show through */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 1;
+    width: 100%;
+    padding: 25px; /* Consistent padding around the content area */
+}
+
+.portal-container {
+    width: 100%;
+    max-width: 1400px; /* Max width for the report content */
+    text-align: center; /* Centers iframe if its display is inline-block or similar */
+}
+
+/* Estilo do iframe (relatório) */
+iframe {
+    width: 100%;
+    max-width: 100%; /* Ensures it fits within portal-container */
+    height: 78vh; /* Adjusted height to use more viewport, can be fine-tuned */
+    border: 1px solid #d1d9e6; /* Softer border color */
+    border-radius: 6px; /* Consistent rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Refined shadow for depth */
+    display: block; /* Ensures margin auto works for centering */
+    margin: 0 auto; /* Center the iframe within portal-container */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+iframe:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Slightly enhanced shadow on hover */
+    /* Consider removing transform: scale for a more subtle hover, or make it very slight e.g., 1.003 */
+}
+
+
+/* ========= ESTILOS DO CHATBOT ========= */
+
+/* Botão Flutuante */
+#chat-toggle-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+
+#chat-toggle-button:hover {
+    transform: scale(1.1);
+}
+
+/* Janela do Chat */
+#chat-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 350px;
+    max-width: 90vw;
+    height: 500px;
+    max-height: 70vh;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Estado Escondido */
+#chat-widget.hidden {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    pointer-events: none;
+}
+
+/* Cabeçalho do Chat */
+.chat-header {
+    background-color: #f1f1f1;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+#chat-close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Área de Mensagens */
+#chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.message.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.message.assistant {
+    background-color: #e9e9eb;
+    color: #000;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+/* Formulário de Input */
+#chat-form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+#chat-input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#chat-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+
+
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .header {
+        height: auto; /* Allow height to adjust to content */
+        padding: 15px; /* Adjust padding for mobile header */
+    }
+
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header .logo {
+        margin-bottom: 15px; /* Space below logo on mobile */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 10px; /* Reduced gap for mobile */
+        width: 100%;
+    }
+
+    .nav-menu ul li {
+        width: 100%;
+    }
+
+    .nav-menu ul li a,
+    .nav-menu ul li .user-greeting-text,
+    .nav-menu ul li button {
+        display: block;
+        width: 100%;
+        padding: 12px; /* Consistent padding for touch targets */
+        text-align: center;
+    }
+    .nav-menu ul li.user-nav-item {
+        flex-direction: column; /* Stack user greeting and button */
+        gap: 10px;
+    }
+    .nav-menu ul li.user-nav-item .user-greeting-text {
+         margin-right: 0; /* Reset margin for stacked layout */
+         margin-bottom: 5px; /* Space if needed */
+    }
+
+
+    .nav-menu ul li button {
+        margin-top: 5px; /* Small space above button if stacked */
+    }
+    
+    .portal {
+        padding: 15px; /* Reduced padding for portal on mobile */
+    }
+
+    iframe {
+        height: 65vh; /* Adjusted iframe height for mobile */
+        border-radius: 4px; /* Slightly smaller radius for smaller component */
+    }
+}
